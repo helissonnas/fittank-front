@@ -1,0 +1,97 @@
+<form class="container" *ngIf="!carregando">
+  <div class="row">
+    <h2>
+      <div *ngIf="cliente.id">
+        Editar Cliente
+      </div>
+      <div *ngIf="!cliente.id">
+        Cadastro de Cliente
+      </div>
+    </h2>
+  </div>
+  <div class="row">
+    <div class="form-group col-9">
+      <label for="nome">Nome</label>
+      <input type="text" name="nome" required class="form-control" id="nome" [(ngModel)]="cliente.usuario.login">
+    </div>
+
+    <div class="form-group col-3">
+      <label for="peso">Peso</label>
+      <input type="number" name="peso" required class="form-control" id="peso" [(ngModel)]="cliente.peso">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-2">
+      <label for="altura">Altura</label>
+      <input type="number" name="altura" required class="form-control" id="altura" [(ngModel)]="cliente.altura">
+    </div>
+
+    <div class="form-group col-3">
+      <label for="massaMagra">Massa Magra</label>
+      <input type="number" name="massaMagra" required class="form-control" id="massaMagra" [(ngModel)]="cliente.massaMagra">
+    </div>
+
+    <div class="form-group col-7">
+      <label for="objetivos">Objetivos</label><br>
+      <div id="objetivos">
+            <span *ngFor="let obj of cliente.objetivos; let i = index" class="badge badge-primary">
+              {{obj.slice(0, 20).toUpperCase()}}
+              <a class="btn btn-sm-primary btn-delet" (click)="cliente.objetivos.splice(i, 1)">&Chi;</a>
+            </span>
+        <button type="button" class="btn btn-sm btn-outline-dark" (click)="openModal(addtag)">+</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-4">
+      <label for="rua">Rua</label>
+      <input type="text" name="rua" required class="form-control" id="rua" [(ngModel)]="cliente.usuario.endereco.rua">
+    </div>
+
+    <div class="form-group col-2">
+      <label for="numero">Nº</label>
+      <input type="text" name="numero" required class="form-control" id="numero" [(ngModel)]="cliente.usuario.endereco.numero">
+    </div>
+
+    <div class="form-group col-3">
+      <label for="bairro">Bairro</label>
+      <input type="text" name="bairro" required class="form-control" id="bairro" [(ngModel)]="cliente.usuario.endereco.bairro">
+    </div>
+
+    <div class="form-group col-3">
+      <label for="cidade">Cidade</label>
+      <input type="text" name="cidade" required class="form-control" id="cidade" [(ngModel)]="cliente.usuario.endereco.cidade">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-12">
+      <label for="complemento">Complemento</label>
+      <textarea rows="3" name="complemento" required class="form-control" id="complemento"
+                [(ngModel)]="cliente.usuario.endereco.complemento"></textarea>
+    </div>
+  </div>
+</form>
+
+<div style="background: #d2d2d2; height: 0.5px" class="col-12"></div>
+
+<div class="offset-xl-9 offset-lg-8 offset-md-6 offset-sm-4 offset-2" style="margin-top: 16px;">
+  <button *ngIf="cliente.id" class="btn btn-xs btn-outline-danger" (click)="delete()"><i class="fa fa-trash-o"></i></button>
+  <button class="btn btn-xs btn-primary"        (click)="salvar()"><i class="fa fa-save"></i> SALVAR</button>
+  <button class="btn btn-xs btn-outline-secondary"        routerLink="/clientes" >CANCELAR</button>
+</div>
+
+<!-- MODAIS -->
+
+<ng-template #addtag>
+  <div class="modal-body text-center">
+    <input type="text" placeholder="TAG" name="tag" class="form-control" id="tag" [(ngModel)]="tag">
+
+    <div class="row" style="margin-left: 8px">
+      <button type="button" class="btn btn-success" (click)="adicionarTag()" >Adicionar</button>
+      <button type="button" class="btn btn-default" (click)="decline()" >Cancelar</button>
+    </div>
+  </div>
+</ng-template>

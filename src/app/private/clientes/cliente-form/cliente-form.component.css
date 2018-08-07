@@ -1,0 +1,25 @@
+form {
+  padding-top: 16px;
+  max-height: 70vh;
+  overflow: auto;
+
+}
+
+.badge {
+  cursor: pointer;
+  margin: 2px;
+  text-align: center;
+  padding-left: 16px;
+  background-color: #e34e14;
+  border-color: #cf421e;
+}
+
+span .badge :hover {
+  background-color: #e9c227;
+  border-color: #dc8324;
+
+}
+
+.btn {
+  margin-left: 8px;
+}
