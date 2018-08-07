@@ -1,4 +1,4 @@
-<form class="container" *ngIf="!carregando">
+<form class="container">
   <div class="row">
     <h2>
       <div *ngIf="cliente.id">
@@ -73,14 +73,35 @@
                 [(ngModel)]="cliente.usuario.endereco.complemento"></textarea>
     </div>
   </div>
+
+  <div *ngIf="!cliente.id" class="row">
+    <div class="form-group col-5">
+      <label for="login">Nome</label>
+      <input type="text" name="login" required class="form-control" id="login" [(ngModel)]="cliente.usuario.login">
+    </div>
+
+    <div class="form-group col-4">
+      <label for="email">E-mail</label>
+      <input type="email" name="email" required class="form-control" id="email" [(ngModel)]="cliente.usuario.email">
+    </div>
+
+    <div class="form-group col-3">
+      <label for="senha">Senha</label>
+      <input type="password" name="senha" required class="form-control" id="senha" [(ngModel)]="cliente.usuario.senha">
+    </div>
+  </div>
 </form>
 
 <div style="background: #d2d2d2; height: 0.5px" class="col-12"></div>
 
-<div class="offset-xl-9 offset-lg-8 offset-md-6 offset-sm-4 offset-2" style="margin-top: 16px;">
+<div *ngIf="!carregando" class="offset-xl-9 offset-lg-8 offset-md-6 offset-sm-4 offset-2" style="margin-top: 16px;">
   <button *ngIf="cliente.id" class="btn btn-xs btn-outline-danger" (click)="delete()"><i class="fa fa-trash-o"></i></button>
   <button class="btn btn-xs btn-primary"        (click)="salvar()"><i class="fa fa-save"></i> SALVAR</button>
   <button class="btn btn-xs btn-outline-secondary"        routerLink="/clientes" >CANCELAR</button>
+</div>
+
+<div *ngIf="carregando" class="offset-5">
+  <img [src]="gif" id="gif"/>
 </div>
 
 <!-- MODAIS -->

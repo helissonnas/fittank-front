@@ -17,6 +17,10 @@ import { LeftbarComponent } from './private/leftbar/leftbar.component';
 import { ClientesComponent } from './private/clientes/clientes.component';
 import { ClienteFormComponent } from './private/clientes/cliente-form/cliente-form.component';
 import {BsDropdownModule, ModalModule} from 'ngx-bootstrap';
+import { PerfilComponent } from './private/perfil/perfil.component';
+import { PersonaisComponent } from './private/personais/personais.component';
+import { PersonalFormComponent } from './private/personais/personal-form/personal-form.component';
+import { PageNotFoundComponent } from './public/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import {BsDropdownModule, ModalModule} from 'ngx-bootstrap';
     NavbarComponent,
     LeftbarComponent,
     ClientesComponent,
-    ClienteFormComponent
+    ClienteFormComponent,
+    PerfilComponent,
+    PersonaisComponent,
+    PersonalFormComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

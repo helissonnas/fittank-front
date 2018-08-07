@@ -20,4 +20,12 @@ export class ClientesComponent implements OnInit {
   visualizar(id) {
     window.location.replace('/cliente/' + id);
   }
+
+  delete(cliente) {
+    this.cli.delete( this.cli.ajustaUsuario(cliente) ).then((response) => {
+      window.location.replace('/clientes');
+    }).catch(error => {
+      console.log(error.response);
+    });
+  }
 }

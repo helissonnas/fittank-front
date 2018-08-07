@@ -7,7 +7,14 @@ import {apiREST} from '../../constants/apiREST';
 })
 export class PersonalService extends RestService {
 
+  lista = [];
+
   constructor() {
     super(apiREST.personal);
+  }
+
+  ajustaUsuario(personal) {
+    personal.usuario.perfis = [3];
+    return personal;
   }
 }

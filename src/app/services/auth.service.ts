@@ -30,7 +30,7 @@ export class AuthService {
       return true;
     } else {
       sessionStorage.clear();
-      location.reload();
+      location.replace('/login');
     }
   }
 
@@ -46,6 +46,6 @@ export class AuthService {
 
   logout() {
     sessionStorage.clear();
-    location.reload();
+    location.replace('/login');
   }
 }

@@ -1,0 +1,79 @@
+footer {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: #e34e14;
+  z-index: 1;
+  color: whitesmoke;
+  text-align: center;
+}
+
+#dash-logo {
+  position: absolute;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+#bloc {
+  border-bottom: #ffd728 32px solid;
+}
+
+.container {
+  height: 90vh;
+}
+
+.card-body {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 0;
+}
+
+.card {
+  right: 0;
+  float: right;
+  top: 23vh;
+  padding: 0;
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+  z-index: 2;
+  -webkit-box-shadow: 2px 6px 5px -2px rgba(0,0,0,0.23);
+  -moz-box-shadow: 2px 6px 5px -2px rgba(0,0,0,0.23);
+  box-shadow: 2px 6px 5px -2px rgba(0,0,0,0.23);
+}
+
+
+@media (min-width: 1008px) {
+  #dash-logo {
+    float: right;
+    top: 22vh;
+    right: 42vw;
+  }
+}
+
+@media (min-width: 750px)  and (max-width: 1008px) {
+  #dash-logo {
+    top: 22vh;
+    left: 41vw;
+  }
+}
+
+@media (min-width: 575px) and (max-width: 750px) {
+  #dash-logo {
+    top: 22vh;
+    left: 30vw;
+  }
+}
+
+@media (max-width: 575px) {
+  #dash-logo {
+    top: 16px;
+    left: 32%;
+  }
+
+  .card {
+    top: 35vh;
+  }
+}
+

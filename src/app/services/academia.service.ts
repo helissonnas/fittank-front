@@ -13,7 +13,7 @@ export class AcademiaService extends RestService {
     super(apiREST.academia);
   }
 
-  private storeAcademia() {
+  storeAcademia() {
     const email = sessionStorage.getItem('email');
 
     if (email) {
@@ -23,6 +23,9 @@ export class AcademiaService extends RestService {
           this._academia = response.data;
         }
       });
+    } else {
+      sessionStorage.clear();
+      window.location.reload();
     }
   }
 
@@ -30,9 +33,17 @@ export class AcademiaService extends RestService {
     if (this._academia) {
       return this._academia;
     } else {
-      this.storeAcademia();
-      return this._academia;
+      if (sessionStorage.getItem('academia')) {
+        this.academia = JSON.parse(sessionStorage.getItem('academia'));
+        return this._academia;
+      } else {
+        this.storeAcademia();
+      }
     }
+  }
+
+  set academia(academia) {
+    this._academia = academia;
   }
 
 

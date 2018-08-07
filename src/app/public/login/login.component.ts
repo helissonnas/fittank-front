@@ -10,6 +10,7 @@ export class LoginComponent implements OnInit {
 
   carregando = false;
   credenciais = { email: '', senha: '' };
+  logo = 'assets/logo.png';
 
   constructor(private auth: AuthService) { }
 

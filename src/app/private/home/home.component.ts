@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AcademiaService} from '../../services/academia.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,11 @@ import {AcademiaService} from '../../services/academia.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private acad: AcademiaService) { }
+  constructor(private acad: AcademiaService,
+              private router: Router) {
+  }
 
   ngOnInit() {
-    console.log(this.acad.academia);
   }
 
 }

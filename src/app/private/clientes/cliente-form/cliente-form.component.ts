@@ -2,6 +2,7 @@ import {Component, OnInit, TemplateRef} from '@angular/core';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {ClienteService} from '../../../services/cliente.service';
 import {ActivatedRoute} from '@angular/router';
+import {AcademiaService} from '../../../services/academia.service';
 
 @Component({
   selector: 'app-cliente-form',
@@ -38,10 +39,14 @@ export class ClienteFormComponent implements OnInit {
   modalRef: BsModalRef;
   carregando = false;
   tag;
+  gif = 'assets/carregando.gif';
 
   constructor(private modalService: BsModalService,
               private cliS: ClienteService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private acad: AcademiaService) {
+    this.cliente.usuario.academia = acad.academia;
+  }
 
   ngOnInit() {
     this.carregando = true;

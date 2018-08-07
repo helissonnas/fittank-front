@@ -1,0 +1,30 @@
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col"> <i class="fa fa-user" aria-hidden="false">         </i> Nome</th>
+      <th scope="col"> <i class="fa fa-envelope" aria-hidden="false">         </i> E-mail</th>
+      <th scope="col"> <i class="fa fa-gears" aria-hidden="false">         </i> Ações</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let perso of this.perS.lista" title="Clique para ver mais detalhes">
+      <th scope="row">{{perso.usuario.login}}</th>
+      <td>{{perso.usuario.email}}</td>
+
+      <td>
+        <button class="btn btn-xs btn-outline-primary" (click)="visualizar(perso.id)"><i class="fa fa-eye"></i></button>
+        <button class="btn btn-xs btn-outline-danger" (click)="delete(perso)"><i class="fa fa-trash-o"></i></button>
+      </td>
+
+    </tr>
+    </tbody>
+
+  </table>
+  <div style="background: #d2d2d2; height: 0.5px" class="col-12"></div>
+
+  <div class="offset-xl-9 offset-lg-8 offset-md-6 offset-sm-4 offset-2" style="margin-top: 16px;">
+    <button class="btn btn-xs btn-primary"        routerLink="/cliente/criar"><i class="fa fa-pencil"></i> CADASTRAR</button>
+  </div>
+</div>

@@ -5,6 +5,11 @@ form {
 
 }
 
+#gif {
+  width: 63px;
+  height: 70px;
+}
+
 .badge {
   cursor: pointer;
   margin: 2px;

@@ -1,0 +1,78 @@
+<form class="container">
+  <div class="row">
+    <h2>
+      <div *ngIf="personal.id">
+        Editar Personal
+      </div>
+      <div *ngIf="!personal.id">
+        Cadastro de Personal
+      </div>
+    </h2>
+  </div>
+  <div class="row">
+    <div class="form-group col-9">
+      <label for="nome">Nome</label>
+      <input type="text" name="nome" required class="form-control" id="nome" [(ngModel)]="personal.usuario.login">
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="form-group col-4">
+      <label for="rua">Rua</label>
+      <input type="text" name="rua" required class="form-control" id="rua" [(ngModel)]="personal.usuario.endereco.rua">
+    </div>
+
+    <div class="form-group col-2">
+      <label for="numero">Nº</label>
+      <input type="text" name="numero" required class="form-control" id="numero" [(ngModel)]="personal.usuario.endereco.numero">
+    </div>
+
+    <div class="form-group col-3">
+      <label for="bairro">Bairro</label>
+      <input type="text" name="bairro" required class="form-control" id="bairro" [(ngModel)]="personal.usuario.endereco.bairro">
+    </div>
+
+    <div class="form-group col-3">
+      <label for="cidade">Cidade</label>
+      <input type="text" name="cidade" required class="form-control" id="cidade" [(ngModel)]="personal.usuario.endereco.cidade">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-12">
+      <label for="complemento">Complemento</label>
+      <textarea rows="3" name="complemento" required class="form-control" id="complemento"
+                [(ngModel)]="personal.usuario.endereco.complemento"></textarea>
+    </div>
+  </div>
+
+  <div *ngIf="!personal.id" class="row">
+    <div class="form-group col-5">
+      <label for="login">Nome</label>
+      <input type="text" name="login" required class="form-control" id="login" [(ngModel)]="personal.usuario.login">
+    </div>
+
+    <div class="form-group col-4">
+      <label for="email">E-mail</label>
+      <input type="email" name="email" required class="form-control" id="email" [(ngModel)]="personal.usuario.email">
+    </div>
+
+    <div class="form-group col-3">
+      <label for="senha">Senha</label>
+      <input type="password" name="senha" required class="form-control" id="senha" [(ngModel)]="personal.usuario.senha">
+    </div>
+  </div>
+</form>
+
+<div style="background: #d2d2d2; height: 0.5px" class="col-12"></div>
+
+<div *ngIf="!carregando" class="offset-xl-9 offset-lg-8 offset-md-6 offset-sm-4 offset-2" style="margin-top: 16px;">
+  <button *ngIf="personal.id" class="btn btn-xs btn-outline-danger" (click)="delete()"><i class="fa fa-trash-o"></i></button>
+  <button class="btn btn-xs btn-primary"        (click)="salvar()"><i class="fa fa-save"></i> SALVAR</button>
+  <button class="btn btn-xs btn-outline-secondary"        routerLink="/personais" >CANCELAR</button>
+</div>
+
+<div *ngIf="carregando" class="offset-5">
+  <img [src]="gif" id="gif"/>
+</div>
